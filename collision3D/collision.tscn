@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://dut8stm3gv2ro"]
+
+[ext_resource type="Script" path="res://collision3D/Player.gd" id="1_oc5h1"]
+[ext_resource type="PackedScene" uid="uid://b6ioox5m4thnk" path="res://collision3D/tree.tscn" id="2_lyr8k"]
+
+[sub_resource type="Environment" id="Environment_n06xb"]
+background_mode = 1
+background_color = Color(0.0745098, 0.384314, 0.486275, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4jlj4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k7680"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uyhdh"]
+friction = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ydxqs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yikyx"]
+albedo_color = Color(0.152941, 0.247059, 0.819608, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr7b7"]
+albedo_color = Color(0.627451, 0.054902, 0.294118, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvnc2"]
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.708993, -0.572558, 0.411711, 0.31464, 0.779303, 0.54193, -0.631134, -0.254684, 0.73267, 0, 7.29649, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n06xb")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(12, -1.31718e-16, 1.01071e-14, 4.04283e-15, 0.289778, 7.76457, -5.26871e-15, -0.0776457, 28.9778, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_4jlj4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_k7680")
+
+[node name="Player" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 5, 14)
+physics_material_override = SubResource("PhysicsMaterial_uyhdh")
+max_contacts_reported = 3
+contact_monitor = true
+script = ExtResource("1_oc5h1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.530265, 0, 0, 0, 0.935138, 0, 0, 0, 0.583971, 0, -0.0413241, 0)
+mesh = SubResource("BoxMesh_ydxqs")
+surface_material_override/0 = SubResource("StandardMaterial3D_yikyx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.795069, 0, 0, 0, 0.272047, 0, 0, 0, 1.61995, 0, -0.627616, -0.17207)
+mesh = SubResource("BoxMesh_ydxqs")
+surface_material_override/0 = SubResource("StandardMaterial3D_wr7b7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.789931, 0, 0, 0, 1.04318, 0, 0, 0, 1, 0, -0.218218, 0)
+shape = SubResource("BoxShape3D_lvnc2")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.842631, 0.538491, 0, -0.538491, 0.842631, 0, 2.02581, 2.16956)
+current = true
+
+[node name="Tree" parent="." instance=ExtResource("2_lyr8k")]
+
+[node name="Tree2" parent="." instance=ExtResource("2_lyr8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8406, -1.47657, -5.84632)
+
+[node name="Tree7" parent="." instance=ExtResource("2_lyr8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67225, -1.47657, -5.84632)
+
+[node name="Tree8" parent="." instance=ExtResource("2_lyr8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03689, -3.05343, -11.7896)
+
+[node name="Tree9" parent="." instance=ExtResource("2_lyr8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414476, -2.90527, -10.8149)
+
+[node name="Tree3" parent="." instance=ExtResource("2_lyr8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10007, 2.70559, 10.0896)
+
+[node name="Tree4" parent="." instance=ExtResource("2_lyr8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5914, 2.70559, 10.0896)
+
+[node name="Tree5" parent="." instance=ExtResource("2_lyr8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5914, 1.45648, 5.74361)
+
+[node name="Tree6" parent="." instance=ExtResource("2_lyr8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.26034, 1.63756, 6.21807)
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
