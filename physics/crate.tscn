@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxmlh8hp5lnbh"]
+
+[ext_resource type="Texture2D" uid="uid://icg2t0o7gsrs" path="res://icon.svg" id="1_ernm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12xlq"]
+size = Vector2(126, 127)
+
+[node name="Crate" type="RigidBody2D"]
+position = Vector2(0, -184)
+gravity_scale = 2.66454e-15
+linear_damp = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.890196, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ernm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_12xlq")
