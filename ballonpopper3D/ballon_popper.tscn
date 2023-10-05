@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://di3weedathev"]
 
-[ext_resource type="Script" path="res://ballon_popper/ballon_popper.gd" id="1_bhbt7"]
-[ext_resource type="PackedScene" uid="uid://duabiks0rlu2f" path="res://ballon_popper/ballon.tscn" id="2_t3fmh"]
+[ext_resource type="Script" path="res://ballonpopper3D/ballon_popper.gd" id="1_bhbt7"]
+[ext_resource type="PackedScene" uid="uid://duabiks0rlu2f" path="res://ballonpopper3D/ballon.tscn" id="2_t3fmh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb7wk"]
 font_size = 43

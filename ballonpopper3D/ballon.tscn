@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://duabiks0rlu2f"]
 
-[ext_resource type="Script" path="res://ballon_popper/Ballon.gd" id="1_pwm7o"]
-[ext_resource type="Material" uid="uid://cge0ribso602h" path="res://ballon_popper/balloon.tres" id="2_w4ut8"]
+[ext_resource type="Script" path="res://ballonpopper3D/Ballon.gd" id="1_pwm7o"]
+[ext_resource type="Material" uid="uid://cge0ribso602h" path="res://ballonpopper3D/balloon.tres" id="2_w4ut8"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_s862m"]
 
